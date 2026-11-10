@@ -9,19 +9,11 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 
-type Theme = "light" | "dark" | "system";
-
-function setTheme(theme: Theme) {
-  const isDark =
-    theme === "dark" ||
-    (theme === "system" &&
-      window.matchMedia("(prefers-color-scheme: dark)").matches);
-
-  document.documentElement.classList.toggle("dark", isDark);
-  document.documentElement.style.colorScheme = isDark ? "dark" : "light";
-}
+import { useTheme } from "@/components/theme-provider";
 
 export function ModeToggle() {
+  const { setTheme } = useTheme();
+
   return (
     <DropdownMenu>
       <DropdownMenuTrigger
