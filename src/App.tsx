@@ -3,6 +3,7 @@ import { Route, Routes } from "react-router";
 import HomeScreen from "./pages/HomeScreen";
 import Layout from "./components/layout";
 import PostDetailsScreen from "./pages/PostDetailsScreen";
+import NotFoundScreen from "./pages/NotFoundScreen";
 
 function App() {
   return (
@@ -13,6 +14,11 @@ function App() {
         <Route
           path="posts/:postId"
           element={<PostDetailsScreen />}
+        />
+
+        <Route
+          path="*"
+          element={<NotFoundScreen />}
         />
       </Route>
     </Routes>
