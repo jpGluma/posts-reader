@@ -1,11 +1,15 @@
-import Avatar from "@/components/avatar";
-import {
+    import {
   Card,
   CardContent,
   CardHeader,
 } from "@/components/ui/card";
 import { Skeleton } from "@/components/ui/skeleton";
-import type { Comment } from "../comments.types";
+
+type Comment = {
+  email: string;
+  name: string;
+  body: string;
+};
 
 const initialOf = (email: string) =>
   email.trim().charAt(0).toUpperCase() || "?";
@@ -15,7 +19,9 @@ const CommentItem = ({ comment }: { comment: Comment }) => {
     <Card size="sm">
       <CardHeader>
         <div className="flex items-center gap-3">
-          <Avatar>{initialOf(comment.email)}</Avatar>
+          <div className="flex size-8 shrink-0 items-center justify-center rounded-full bg-muted text-sm font-medium">
+            {initialOf(comment.email)}
+          </div>
 
           <h3 className="min-w-0 text-[0.9375rem] leading-snug font-medium tracking-[-0.005em] first-letter:uppercase">
             {comment.name}

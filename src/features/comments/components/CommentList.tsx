@@ -1,10 +1,9 @@
 import { Button } from "@/components/ui/button";
 import { gutter } from "@/lib/layout";
-import { useComments } from "../comments.hooks";
-import type { Comment } from "../comments.types";
+    import { useComments } from "../comments.hooks";
 import CommentItem, { CommentItemSkeleton } from "./Comment";
 
-const CommentList = ({ postId }: { postId: Comment["postId"] }) => {
+const CommentList = ({ postId }: { postId: Parameters<typeof useComments>[0] }) => {
   const { isPending, isError, error, data, refetch } =
     useComments(postId);
 
