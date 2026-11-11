@@ -1,11 +1,11 @@
 import { Button } from "@/components/ui/button";
 import { gutter } from "@/lib/layout";
-    import { useComments } from "../comments.hooks";
+import { useComments } from "../comments.hooks";
+import type { Comment } from "../comments.types";
 import CommentItem, { CommentItemSkeleton } from "./Comment";
 
-const CommentList = ({ postId }: { postId: Parameters<typeof useComments>[0] }) => {
-  const { isPending, isError, error, data, refetch } =
-    useComments(postId);
+const CommentList = ({ postId }: { postId: Comment["postId"] }) => {
+  const { isPending, isError, error, data, refetch } = useComments(postId);
 
   return (
     <section className={`mt-16 border-t border-border pt-10 ${gutter}`}>
@@ -14,17 +14,14 @@ const CommentList = ({ postId }: { postId: Parameters<typeof useComments>[0] }) 
       </p>
 
       <div className="min-w-0">
-        <h2 className="text-sm font-medium tracking-tight">
-          Comments
-        </h2>
+        <h2 className="text-sm font-medium tracking-tight">Comments</h2>
 
         <div className="mt-6 flex flex-col gap-3">
           {isPending && (
             <>
               <p role="status" className="sr-only">
                 Loading comments
-              </p>
-
+                  </p>
               <div aria-hidden className="flex flex-col gap-3">
                 {[1, 2, 3].map((index) => (
                   <CommentItemSkeleton key={index} />
@@ -37,8 +34,7 @@ const CommentList = ({ postId }: { postId: Parameters<typeof useComments>[0] }) 
             <div>
               <p className="text-[0.9375rem] leading-relaxed text-muted-foreground">
                 {error.message}
-              </p>
-
+                  </p>
               <Button
                 variant="outline"
                 size="sm"
@@ -57,10 +53,7 @@ const CommentList = ({ postId }: { postId: Parameters<typeof useComments>[0] }) 
           )}
 
           {data?.map((comment) => (
-            <CommentItem
-              comment={comment}
-              key={comment.id}
-            />
+            <CommentItem comment={comment} key={comment.id} />
           ))}
         </div>
       </div>
