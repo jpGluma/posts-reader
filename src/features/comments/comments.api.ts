@@ -1,5 +1,12 @@
 import api from "@/lib/api";
-import type { Comment } from "./comments.types";
+
+type Comment = {
+  postId: number;
+  id: number;
+  name: string;
+  email: string;
+  body: string;
+};
 
 export const getComments = async (postId: Comment["postId"]) => {
   const res = await api.get<Comment[]>(
