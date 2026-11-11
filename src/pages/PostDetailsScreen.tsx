@@ -6,7 +6,7 @@ import {
   buttonVariants,
   } from "@/components/ui/button";
 import { Skeleton } from "@/components/ui/skeleton";
-import CommentList from "@/features/comments/components/commentList";
+import CommentList from "@/features/comments/components/CommentList";
 import { usePost } from "@/features/posts/posts.hooks";
 import { gutter } from "@/lib/layout";
 
@@ -139,7 +139,7 @@ const PostDetailsScreen = () => {
             </span>
           )}
 
-          <FormattedDate value={data.createdAt} />
+          {data.createdAt && <FormattedDate value={data.createdAt} />}
         </div>
 
         {paragraphs.length > 0 && (
