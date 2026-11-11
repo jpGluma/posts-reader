@@ -6,7 +6,7 @@ import {
   buttonVariants,
   } from "@/components/ui/button";
 import { Skeleton } from "@/components/ui/skeleton";
-import CommentList from "@/features/comments/components/CommentList";
+import CommentList from "@/features/comments/components/commentList";
 import { usePost } from "@/features/posts/posts.hooks";
 import { gutter } from "@/lib/layout";
 
