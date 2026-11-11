@@ -21,7 +21,7 @@ const CommentList = ({ postId }: { postId: Comment["postId"] }) => {
             <>
               <p role="status" className="sr-only">
                 Loading comments
-              </p>
+                  </p>
               <div aria-hidden className="flex flex-col gap-3">
                 {[1, 2, 3].map((index) => (
                   <CommentItemSkeleton key={index} />
@@ -34,7 +34,7 @@ const CommentList = ({ postId }: { postId: Comment["postId"] }) => {
             <div>
               <p className="text-[0.9375rem] leading-relaxed text-muted-foreground">
                 {error.message}
-              </p>
+                  </p>
               <Button
                 variant="outline"
                 size="sm"
